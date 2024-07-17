@@ -1,0 +1,6 @@
+path: C:/Users/islam/Desktop/Data
+train: images/train 
+val: images/val  
+
+nc: 2
+names: ['A', 'B']
