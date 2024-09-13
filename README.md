@@ -93,7 +93,3 @@ output:
 - `config.yaml`: Configuration file for setting parameters for training and prediction.
 - `masks_to_polygon.py`: Utility script to convert single instance masks to polygons.
 - `masks_to_polygon_multi_instance.py`: Utility script to convert multi-instance masks to polygons.
-
----
-
-Feel free to modify this README file as per your specific requirements and add any additional information that might be helpful for users of your project.
