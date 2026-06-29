@@ -6,35 +6,33 @@ Created on Wed Jun 12 12:59:53 2024
 """
 
 
-# =============================================================================
-# from ultralytics import YOLO
-# import numpy as np
-# import cv2
-# 
-# model_path = 'C:/Users/islam/Desktop\Model/1000_epochs_253_image_train_22_image_validation/best.pt'
-# image_path = 'C:/Users/islam/Desktop/test_daten/P7100678.jpg'
-# 
-# img = cv2.imread(image_path)
-# print(img.shape)
-# H, W, _ = img.shape
-# 
-# model = YOLO(model_path)
-# 
-# results = model(img)  # , conf=0.25, iou=0.45)
-# 
-# # Create a blank image for combined masks
-# combined_mask = np.zeros((H, W), dtype=np.uint8)
-# 
-# for i, result in enumerate(results):
-#     if result.masks is not None:
-#         for j, mask in enumerate(result.masks.data):
-#             mask = mask.numpy() * 255
-#             mask = cv2.resize(mask, (W, H))
-#             combined_mask = np.maximum(combined_mask, mask)  # Combine masks
-# 
-# cv2.imwrite('./P7100678_pred.png', combined_mask)
-# print('Saved combined mask to ./P7100678_pred.png')
-# =============================================================================
+from ultralytics import YOLO
+import numpy as np
+import cv2
+
+model_path = 'C:/Users/islam/Desktop/Model/1000_epochs_253_image_train_22_image_validation/best.pt'
+image_path = 'C:/Users/islam/Desktop/test_daten/P7100678.jpg'
+
+img = cv2.imread(image_path)
+print(img.shape)
+H, W, _ = img.shape
+
+model = YOLO(model_path)
+
+results = model(img)  # , conf=0.25, iou=0.45)
+
+# Create a blank image for combined masks
+combined_mask = np.zeros((H, W), dtype=np.uint8)
+
+for i, result in enumerate(results):
+    if result.masks is not None:
+        for j, mask in enumerate(result.masks.data):
+            mask = mask.numpy() * 255
+            mask = cv2.resize(mask, (W, H))
+            combined_mask = np.maximum(combined_mask, mask)  # Combine masks
+
+cv2.imwrite('./P7100678_pred.png', combined_mask)
+print('Saved combined mask to ./P7100678_pred.png')
 
 import os
 from ultralytics import YOLO
